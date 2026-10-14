@@ -11,6 +11,8 @@ import { Minus, Plus } from "lucide-react";
 import { type FormEvent, useState } from "react";
 import { toast } from "sonner";
 
+import { errorMessage } from "@/lib/errors";
+
 import { trpc } from "@/utils/trpc";
 
 export const Route = createFileRoute("/_auth/vos-melden")({
@@ -86,7 +88,7 @@ function ClaimForm({ maxChickens }: { maxChickens: number }) {
 				);
 				navigate({ to: "/kot" });
 			},
-			onError: (error) => toast.error(error.message),
+			onError: (error) => toast.error(errorMessage(error)),
 		}),
 	);
 

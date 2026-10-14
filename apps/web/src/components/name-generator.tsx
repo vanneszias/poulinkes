@@ -49,8 +49,14 @@ export function NameGenerator({
 				.catch(() => {});
 			return;
 		}
-		await navigator.clipboard.writeText(`${text} ${url}`);
-		toast.success("Gekopieerd. Plak het waar je wil.");
+		try {
+			await navigator.clipboard.writeText(`${text} ${url}`);
+			toast.success("Gekopieerd. Plak het waar je wil.");
+		} catch {
+			toast.error(
+				"Kopiëren lukte niet. Selecteer de namen en kopieer ze zelf.",
+			);
+		}
 	}
 
 	return (

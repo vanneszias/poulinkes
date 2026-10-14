@@ -5,13 +5,14 @@ import { createTRPCOptionsProxy } from "@trpc/tanstack-react-query";
 import { toast } from "sonner";
 
 import { ENV } from "../env.public";
+import { errorMessage } from "../lib/errors";
 
 export const queryClient = new QueryClient({
 	queryCache: new QueryCache({
 		onError: (error, query) => {
-			toast.error(error.message, {
+			toast.error(errorMessage(error), {
 				action: {
-					label: "retry",
+					label: "Opnieuw",
 					onClick: () => {
 						query.invalidate();
 					},

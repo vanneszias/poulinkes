@@ -9,6 +9,7 @@ import z from "zod";
 
 import { authClient } from "@/lib/auth-client";
 import { startCheckout } from "@/lib/checkout";
+import { authErrorMessage, errorMessage } from "@/lib/errors";
 
 type Mode = "sign-in" | "sign-up";
 
@@ -50,21 +51,21 @@ export function AuthForm({
 		onSubmit: async ({ value }) => {
 			const callbacks = {
 				onSuccess: afterAuth,
-				onError: ({
-					error,
-				}: {
-					error: { message?: string; statusText: string };
-				}) => {
-					toast.error(error.message || error.statusText);
+				onError: ({ error }: { error: { code?: string; status?: number } }) => {
+					toast.error(authErrorMessage(error));
 				},
 			};
-			if (mode === "sign-up") {
-				await authClient.signUp.email(value, callbacks);
-			} else {
-				await authClient.signIn.email(
-					{ email: value.email, password: value.password },
-					callbacks,
-				);
+			try {
+				if (mode === "sign-up") {
+					await authClient.signUp.email(value, callbacks);
+				} else {
+					await authClient.signIn.email(
+						{ email: value.email, password: value.password },
+						callbacks,
+					);
+				}
+			} catch (error) {
+				toast.error(errorMessage(error));
 			}
 		},
 	});

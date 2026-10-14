@@ -8,12 +8,12 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import type { inferRouterOutputs } from "@trpc/server";
 import { useState } from "react";
 import { toast } from "sonner";
-
 import { ClaimStatus } from "@/components/claim-status";
 import { LegBand } from "@/components/leg-band";
 import { NameGenerator } from "@/components/name-generator";
 import { Pricing } from "@/components/pricing";
 import { authClient } from "@/lib/auth-client";
+import { errorMessage } from "@/lib/errors";
 import { formatDate } from "@/lib/format";
 import { trpc } from "@/utils/trpc";
 
@@ -109,7 +109,7 @@ function Flock({ capacity }: { capacity: number }) {
 				toast.success(`${chicken.name} heeft een bandje.`);
 				queryClient.invalidateQueries(trpc.flock.list.queryFilter());
 			},
-			onError: (error) => toast.error(error.message),
+			onError: (error) => toast.error(errorMessage(error)),
 		}),
 	);
 	const [ownName, setOwnName] = useState("");

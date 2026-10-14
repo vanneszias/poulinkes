@@ -33,6 +33,11 @@ app.use(
 		createContext: (_opts, context) => {
 			return createContext({ context });
 		},
+		onError: ({ error, path }) => {
+			if (error.code === "INTERNAL_SERVER_ERROR") {
+				console.error(`tRPC ${path ?? "?"} failed:`, error.cause ?? error);
+			}
+		},
 	}),
 );
 
