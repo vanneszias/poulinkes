@@ -9,6 +9,7 @@ import type * as React from "react";
 
 function InputGroup({ className, ...props }: React.ComponentProps<"div">) {
 	return (
+		// biome-ignore lint/a11y/useSemanticElements: shadcn pattern, fieldset styling differs
 		<div
 			data-slot="input-group"
 			role="group"
@@ -53,6 +54,8 @@ function InputGroupAddon({
 	...props
 }: React.ComponentProps<"div"> & VariantProps<typeof inputGroupAddonVariants>) {
 	return (
+		// biome-ignore lint/a11y/useSemanticElements: shadcn pattern, fieldset styling differs
+		// biome-ignore lint/a11y/useKeyWithClickEvents: click only forwards focus to the input, which is keyboard-reachable
 		<div
 			role="group"
 			data-slot="input-group-addon"

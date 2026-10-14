@@ -189,14 +189,14 @@ shareBtn.addEventListener("click", async () => {
 // --- Abonnement kiezen ------------------------------------------------------
 
 const signup = document.getElementById("signup");
-document.querySelectorAll(".choose").forEach((btn) =>
+for (const btn of document.querySelectorAll(".choose")) {
 	btn.addEventListener("click", () => {
 		document.getElementById("chosen").textContent =
 			btn.closest(".plan").dataset.plan;
 		signup.hidden = false;
 		signup.scrollIntoView({ behavior: "smooth", block: "center" });
-	}),
-);
+	});
+}
 
 signup.addEventListener("submit", (e) => {
 	e.preventDefault();

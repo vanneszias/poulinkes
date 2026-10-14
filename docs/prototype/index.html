@@ -12,7 +12,7 @@
 </head>
 <body>
   <header class="nav">
-    <a href="#" class="logo">Poulinkes<span>.</span></a>
+    <a href="./" class="logo">Poulinkes<span>.</span></a>
     <nav>
       <a href="#abo">Abonnementen</a>
       <a href="#namen">Naamgenerator</a>
@@ -51,20 +51,20 @@
           <h3>Stadskot</h3>
           <p class="price">€9<small>/maand</small></p>
           <ul><li>2 legkippen</li><li>1 vossenclaim per jaar</li><li>Kippennaam-certificaat</li></ul>
-          <button class="btn choose">Kies Stadskot</button>
+          <button type="button" class="btn choose">Kies Stadskot</button>
         </article>
         <article class="plan featured" data-plan="Familiekot">
           <span class="tag">Populairst</span>
           <h3>Familiekot</h3>
           <p class="price">€15<small>/maand</small></p>
           <ul><li>4 legkippen</li><li>2 vossenclaims per jaar</li><li>Jaarlijkse zak voer</li><li>Kippennaam-certificaten</li></ul>
-          <button class="btn choose">Kies Familiekot</button>
+          <button type="button" class="btn choose">Kies Familiekot</button>
         </article>
         <article class="plan" data-plan="Boerderijbende">
           <h3>Boerderijbende</h3>
           <p class="price">€25<small>/maand</small></p>
           <ul><li>8 legkippen</li><li>Onbeperkt vossenclaims*</li><li>Vossenwerend schrikdraad-advies</li><li>Gratis haan-op-proef</li></ul>
-          <button class="btn choose">Kies Boerderijbende</button>
+          <button type="button" class="btn choose">Kies Boerderijbende</button>
         </article>
       </div>
       <p class="fine">* Fair use. Na drie claims komen we eens kijken naar uw omheining.</p>
@@ -74,7 +74,7 @@
         <label>Naam <input name="naam" required></label>
         <label>E-mail <input type="email" name="email" required></label>
         <label>Postcode <input name="postcode" pattern="[1-9][0-9]{3}" required placeholder="9000"></label>
-        <button class="btn">Bevestig abonnement</button>
+        <button type="submit" class="btn">Bevestig abonnement</button>
         <p class="result" role="status"></p>
       </form>
     </section>
@@ -94,10 +94,10 @@
         <label>Aantal kippen
           <input id="count" type="number" min="1" max="12" value="4">
         </label>
-        <button id="generate" class="btn">Geef ze een naam</button>
+        <button type="button" id="generate" class="btn">Geef ze een naam</button>
       </div>
       <ol id="names" class="names"></ol>
-      <button id="share" class="btn ghost" hidden>Deel mijn kippenbende</button>
+      <button type="button" id="share" class="btn ghost" hidden>Deel mijn kippenbende</button>
       <p id="shared" class="result" role="status"></p>
     </section>
 
@@ -110,7 +110,7 @@
         <label>Wanneer? <input type="date" name="datum" required></label>
         <label>Foto van de plaats delict <input type="file" name="foto" accept="image/*"></label>
         <label class="check"><input type="checkbox" name="omheining"> De kippen zaten 's nachts in een gesloten hok</label>
-        <button class="btn">Meld de vos</button>
+        <button type="submit" class="btn">Meld de vos</button>
         <p class="result" role="status"></p>
       </form>
     </section>
