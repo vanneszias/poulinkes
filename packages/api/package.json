@@ -1,0 +1,23 @@
+{
+	"name": "@poulinkes/api",
+	"type": "module",
+	"exports": {
+		".": "./src/index.ts",
+		"./*": "./src/*.ts"
+	},
+	"scripts": {
+		"check-types": "tsc --noEmit"
+	},
+	"dependencies": {
+		"@poulinkes/auth": "workspace:*",
+		"@poulinkes/db": "workspace:*",
+		"@trpc/client": "catalog:",
+		"@trpc/server": "catalog:",
+		"drizzle-orm": "catalog:",
+		"zod": "catalog:"
+	},
+	"devDependencies": {
+		"@poulinkes/config": "workspace:*",
+		"typescript": "catalog:"
+	}
+}

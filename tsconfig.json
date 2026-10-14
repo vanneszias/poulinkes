@@ -1,0 +1,3 @@
+{
+	"extends": "@poulinkes/config/tsconfig.base.json"
+}

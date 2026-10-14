@@ -1,0 +1,30 @@
+{
+	"name": "server",
+	"type": "module",
+	"main": "src/index.ts",
+	"scripts": {
+		"build": "tsdown",
+		"check-types": "tsc --noEmit",
+		"compile": "bun build --compile --no-compile-autoload-dotenv --minify --sourcemap --bytecode ./src/index.ts --outfile server",
+		"env:generate": "varlock codegen"
+	},
+	"dependencies": {
+		"@hono/trpc-server": "^0.4.2",
+		"@poulinkes/api": "workspace:*",
+		"@poulinkes/auth": "workspace:*",
+		"@poulinkes/db": "workspace:*",
+		"@trpc/server": "catalog:",
+		"better-auth": "catalog:",
+		"hono": "^4.13.7",
+		"varlock": "catalog:",
+		"zod": "catalog:"
+	},
+	"devDependencies": {
+		"@cloudflare/workers-types": "catalog:",
+		"@poulinkes/config": "workspace:*",
+		"@poulinkes/infra": "workspace:*",
+		"@types/node": "^26.4.1",
+		"tsdown": "^0.23.0",
+		"typescript": "catalog:"
+	}
+}

@@ -1,0 +1,4 @@
+{
+	"extends": "@poulinkes/config/tsconfig.base.json",
+	"include": ["alchemy.run.ts"]
+}

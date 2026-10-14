@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="nl-BE">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Poulinkes — Kippen op abonnement, met vossengarantie</title>
+  <meta name="description" content="Kippenabo met vossengarantie: is de vos langs geweest? Wij leveren binnen 48 uur nieuwe kiekens aan huis.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,900&family=Work+Sans:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="nav">
+    <a href="#" class="logo">Poulinkes<span>.</span></a>
+    <nav>
+      <a href="#abo">Abonnementen</a>
+      <a href="#namen">Naamgenerator</a>
+      <a href="#vos">Vos gezien?</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div>
+        <p class="kicker">Kippen op abonnement · Vlaanderen</p>
+        <h1>De vos was hier.<br><em>Wij ook, binnen 48 uur.</em></h1>
+        <p class="lead">Een kippenabo met vossengarantie. Heeft Reinaert uw kiekens opgepeuzeld? Meld het, en wij leveren verse legkippen rechtstreeks van een kweker bij u in de buurt.</p>
+        <div class="cta">
+          <a href="#abo" class="btn">Kies uw kot</a>
+          <a href="#namen" class="btn ghost">Verzin een kippennaam</a>
+        </div>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <div class="egg">🐔</div>
+        <div class="fox">🦊</div>
+        <div class="stamp">Vossen&shy;garantie</div>
+      </div>
+    </section>
+
+    <section class="steps">
+      <div><b>1</b><h3>Kies uw abo</h3><p>Van een duo voor de stadstuin tot een volle boerderijbende.</p></div>
+      <div><b>2</b><h3>Kiekens aan huis</h3><p>Gezonde, gevaccineerde legkippen van een erkende kweker in uw regio.</p></div>
+      <div><b>3</b><h3>Vos geweest?</h3><p>Meld het met een foto. Binnen 48 uur staan er nieuwe kippen voor de deur.</p></div>
+    </section>
+
+    <section id="abo">
+      <h2>Kies uw kot</h2>
+      <div class="plans">
+        <article class="plan" data-plan="Stadskot">
+          <h3>Stadskot</h3>
+          <p class="price">€9<small>/maand</small></p>
+          <ul><li>2 legkippen</li><li>1 vossenclaim per jaar</li><li>Kippennaam-certificaat</li></ul>
+          <button class="btn choose">Kies Stadskot</button>
+        </article>
+        <article class="plan featured" data-plan="Familiekot">
+          <span class="tag">Populairst</span>
+          <h3>Familiekot</h3>
+          <p class="price">€15<small>/maand</small></p>
+          <ul><li>4 legkippen</li><li>2 vossenclaims per jaar</li><li>Jaarlijkse zak voer</li><li>Kippennaam-certificaten</li></ul>
+          <button class="btn choose">Kies Familiekot</button>
+        </article>
+        <article class="plan" data-plan="Boerderijbende">
+          <h3>Boerderijbende</h3>
+          <p class="price">€25<small>/maand</small></p>
+          <ul><li>8 legkippen</li><li>Onbeperkt vossenclaims*</li><li>Vossenwerend schrikdraad-advies</li><li>Gratis haan-op-proef</li></ul>
+          <button class="btn choose">Kies Boerderijbende</button>
+        </article>
+      </div>
+      <p class="fine">* Fair use. Na drie claims komen we eens kijken naar uw omheining.</p>
+
+      <form id="signup" class="card" hidden>
+        <h3>Inschrijven: <span id="chosen"></span></h3>
+        <label>Naam <input name="naam" required></label>
+        <label>E-mail <input type="email" name="email" required></label>
+        <label>Postcode <input name="postcode" pattern="[1-9][0-9]{3}" required placeholder="9000"></label>
+        <button class="btn">Bevestig abonnement</button>
+        <p class="result" role="status"></p>
+      </form>
+    </section>
+
+    <section id="namen" class="namer">
+      <h2>Kippennaamgenerator</h2>
+      <p>Elke kip verdient een naam. Kies een stijl, klik, en deel het resultaat.</p>
+      <div class="namer-controls">
+        <label>Stijl
+          <select id="style">
+            <option value="vlaams">Klassiek Vlaams</option>
+            <option value="deftig">Deftig</option>
+            <option value="rock">Rock-'n-roll</option>
+            <option value="woordgrap">Woordgrappen</option>
+          </select>
+        </label>
+        <label>Aantal kippen
+          <input id="count" type="number" min="1" max="12" value="4">
+        </label>
+        <button id="generate" class="btn">Geef ze een naam</button>
+      </div>
+      <ol id="names" class="names"></ol>
+      <button id="share" class="btn ghost" hidden>Deel mijn kippenbende</button>
+      <p id="shared" class="result" role="status"></p>
+    </section>
+
+    <section id="vos">
+      <h2>De vos is langs geweest</h2>
+      <p>Spijtig. Echt. Vul dit in en wij regelen vervangkiekens via de dichtstbijzijnde kweker.</p>
+      <form id="claim" class="card">
+        <label>Abonnementsnummer <input name="abo" required placeholder="POU-12345"></label>
+        <label>Aantal kippen verloren <input type="number" name="aantal" min="1" max="8" value="1" required></label>
+        <label>Wanneer? <input type="date" name="datum" required></label>
+        <label>Foto van de plaats delict <input type="file" name="foto" accept="image/*"></label>
+        <label class="check"><input type="checkbox" name="omheining"> De kippen zaten 's nachts in een gesloten hok</label>
+        <button class="btn">Meld de vos</button>
+        <p class="result" role="status"></p>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p>Poulinkes · kippen met een hart en een naam · <a href="#namen">poulinkes.be/namen</a></p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

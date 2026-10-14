@@ -1,0 +1,6 @@
+{
+	"extends": "@poulinkes/config/tsconfig.base.json",
+	"compilerOptions": {
+		"noEmit": true
+	}
+}

@@ -1,0 +1,52 @@
+{
+	"name": "poulinkes",
+	"private": true,
+	"workspaces": {
+		"packages": [
+			"apps/*",
+			"packages/*"
+		],
+		"catalog": {
+			"zod": "^4.5.4",
+			"typescript": "^6.0.3",
+			"varlock": "1.18.0",
+			"@cloudflare/workers-types": "^5.20260906.1",
+			"@trpc/server": "^11.19.0",
+			"better-auth": "1.7.7",
+			"next-themes": "^0.4.6",
+			"sonner": "^2.0.8",
+			"@trpc/client": "^11.19.0",
+			"@polar-sh/better-auth": "^1.8.4",
+			"tailwindcss": "^4.3.3",
+			"drizzle-orm": "1.0.0-rc.4"
+		}
+	},
+	"type": "module",
+	"scripts": {
+		"dev": "turbo run dev",
+		"build": "turbo run build",
+		"check-types": "turbo run check-types",
+		"dev:web": "turbo run dev:bare -F web --",
+		"dev:server": "turbo run dev:bare -F hono --",
+		"db:generate": "turbo run db:generate -F @poulinkes/db --",
+		"deploy": "turbo run deploy -F @poulinkes/infra --",
+		"deploy:prod": "turbo run deploy:prod -F @poulinkes/infra --",
+		"destroy": "turbo run destroy -F @poulinkes/infra --",
+		"env:generate": "varlock codegen --path ./apps/web/ && varlock codegen --path ./apps/server/ && varlock codegen --path ./packages/db/",
+		"postinstall": "varlock codegen --path ./apps/web/ && varlock codegen --path ./apps/server/ && varlock codegen --path ./packages/db/",
+		"check": "biome check --write ."
+	},
+	"dependencies": {
+		"zod": "catalog:"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "^2.5.15",
+		"@cloudflare/workers-types": "catalog:",
+		"@poulinkes/config": "workspace:*",
+		"@types/node": "^26.4.1",
+		"turbo": "^2.11.7",
+		"typescript": "catalog:",
+		"varlock": "catalog:"
+	},
+	"packageManager": "bun@1.4.0"
+}

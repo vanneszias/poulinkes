@@ -1,0 +1,113 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+@source "../../../apps/**/*.{ts,tsx}";
+@source "../**/*.{ts,tsx}";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * Poulinkes palette
+ * shutter  #1E4632  green of Flemish farmhouse shutters, the brand colour
+ * yolk     #F2B705  leg bands and highlights
+ * chalk    #F4F6F1  page background
+ * ink      #13231A  text
+ * fox      #E0601F  only used around fox claims
+ */
+:root {
+	--shutter: #1e4632;
+	--shutter-deep: #143224;
+	--yolk: #f2b705;
+	--chalk: #f4f6f1;
+	--ink: #13231a;
+	--fox: #e0601f;
+
+	--background: var(--chalk);
+	--foreground: var(--ink);
+	--card: #ffffff;
+	--card-foreground: var(--ink);
+	--popover: #ffffff;
+	--popover-foreground: var(--ink);
+	--primary: var(--shutter);
+	--primary-foreground: #ffffff;
+	--secondary: #e3eadf;
+	--secondary-foreground: var(--ink);
+	--muted: #e9eee5;
+	--muted-foreground: #4d5f54;
+	--accent: var(--yolk);
+	--accent-foreground: var(--ink);
+	--destructive: #b42318;
+	--border: #cfd8cc;
+	--input: #b9c5b5;
+	--ring: var(--shutter);
+	--radius: 0.75rem;
+}
+
+@theme inline {
+	--font-sans: "Instrument Sans Variable", ui-sans-serif, system-ui, sans-serif;
+	--font-display: "Anybody Variable", ui-sans-serif, system-ui, sans-serif;
+	--color-shutter: var(--shutter);
+	--color-shutter-deep: var(--shutter-deep);
+	--color-yolk: var(--yolk);
+	--color-chalk: var(--chalk);
+	--color-ink: var(--ink);
+	--color-fox: var(--fox);
+	--color-ring: var(--ring);
+	--color-input: var(--input);
+	--color-border: var(--border);
+	--color-destructive: var(--destructive);
+	--color-accent-foreground: var(--accent-foreground);
+	--color-accent: var(--accent);
+	--color-muted-foreground: var(--muted-foreground);
+	--color-muted: var(--muted);
+	--color-secondary-foreground: var(--secondary-foreground);
+	--color-secondary: var(--secondary);
+	--color-primary-foreground: var(--primary-foreground);
+	--color-primary: var(--primary);
+	--color-popover-foreground: var(--popover-foreground);
+	--color-popover: var(--popover);
+	--color-card-foreground: var(--card-foreground);
+	--color-card: var(--card);
+	--color-foreground: var(--foreground);
+	--color-background: var(--background);
+	--radius-sm: calc(var(--radius) - 4px);
+	--radius-md: calc(var(--radius) - 2px);
+	--radius-lg: var(--radius);
+	--radius-xl: calc(var(--radius) + 4px);
+	--radius-2xl: calc(var(--radius) + 8px);
+	--radius-3xl: calc(var(--radius) + 12px);
+	--radius-4xl: calc(var(--radius) + 16px);
+}
+
+@layer base {
+	* {
+		@apply border-border outline-ring/50;
+	}
+	body {
+		@apply bg-background font-sans text-foreground antialiased;
+		font-size: 1.0625rem;
+		line-height: 1.6;
+	}
+	h1,
+	h2,
+	h3 {
+		@apply font-display text-balance;
+		line-height: 1.05;
+	}
+	:focus-visible {
+		@apply outline-2 outline-offset-2 outline-shutter;
+	}
+	@media (prefers-reduced-motion: reduce) {
+		*,
+		::before,
+		::after {
+			/* biome-ignore-start lint/complexity/noImportantStyles: reduced motion must win over every animation */
+			animation-duration: 0.01ms !important;
+			transition-duration: 0.01ms !important;
+			/* biome-ignore-end lint/complexity/noImportantStyles: reduced motion must win over every animation */
+		}
+	}
+	html {
+		@apply font-sans;
+	}
+}
